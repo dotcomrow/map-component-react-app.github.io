@@ -18,7 +18,7 @@ function App() {
         // Parameters to pass to OAuth 2.0 endpoint.
         var params = {
             'client_id': '<GOOGLE_OAUTH_CLIENT_ID>',
-            'redirect_uri': window.location.href,
+            'redirect_uri': '<REDIRECT_URL>',
             'scope': 'email profile openid',
             'state': 'try_sample_request',
             'include_granted_scopes': 'true',
