@@ -1,5 +1,5 @@
 FROM node:16.15.1 as build
-WORKDIR /app
+WORKDIR /<REPOSITORY_NAME>
 
 COPY package*.json .
 RUN npm install
