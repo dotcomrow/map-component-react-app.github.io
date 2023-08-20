@@ -6,7 +6,6 @@ import VectorLayer from "ol/layer/Vector";
 import OSM from "ol/source/OSM";
 import VectorSource from "ol/source/Vector";
 import GeoJSON from "ol/format/GeoJSON";
-
 import { bbox } from "ol/loadingstrategy.js";
 import { Style, Fill, Stroke } from "ol/style";
 import Graticule from "ol/layer/Graticule.js";
@@ -34,14 +33,9 @@ const formatLineString = (obj) => {
 const vectorSource = new VectorSource({
   format: new GeoJSON(),
   loader: function (extent, _resolution, _projection, success, failure) {
+    vectorSource.removeLoadedExtent(extent);
     const url =
-      "https://us-east1-tactile-alloy-392517.cloudfunctions.net/map-data-load-function/" +
-      "?bbox=" +
-      extent.join(",") +
-      "&graticuleMeridians=" +
-      encodeURIComponent(formatLineString(graticule.getMeridians())) +
-      "&graticuleParallels=" +
-      encodeURIComponent(formatLineString(graticule.getParallels()));
+      "<OL_LAYER_URL>" + 
     const xhr = new XMLHttpRequest();
     xhr.open("GET", url);
     const onError = function () {
