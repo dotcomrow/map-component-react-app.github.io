@@ -40,7 +40,7 @@ jobs:
             push: true
             tags: gcr.io/${{ vars.PROJECT_ID }}/${{ env.REPOSITORY_NAME }}:latest
             build-args: |
-              HTTP_PORT=8080
+              HTTP_PORT=80
 
         - name: Deploy to Cloud Run
           uses: google-github-actions/deploy-cloudrun@v1
