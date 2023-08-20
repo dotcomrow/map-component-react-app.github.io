@@ -35,7 +35,7 @@ const vectorSource = new VectorSource({
   loader: function (extent, _resolution, _projection, success, failure) {
     vectorSource.removeLoadedExtent(extent);
     const url =
-      "<OL_LAYER_URL>" + 
+      "<OL_LAYER_URL>"
     const xhr = new XMLHttpRequest();
     xhr.open("GET", url);
     const onError = function () {
