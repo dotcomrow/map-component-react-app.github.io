@@ -65,10 +65,6 @@ module.exports = (env) => {
                     {
                         from: path.resolve(__dirname, '../public'),
                         to: path.resolve(__dirname, '../build'),
-                    },
-                    {
-                        from: path.resolve(__dirname, '../envConfig'),
-                        to: path.resolve(__dirname, '../build'),
                     }
                 ]
             }),
