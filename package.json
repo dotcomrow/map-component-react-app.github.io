@@ -1,5 +1,6 @@
 {
   "name": "map-component-react-app",
+  "description": "Map Component React App",
   "version": "0.1.0",
   "main": "index.js",
   "path": "build",
