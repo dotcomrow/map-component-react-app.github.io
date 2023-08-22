@@ -10,6 +10,8 @@ import { bbox } from "ol/loadingstrategy.js";
 import { Style, Fill, Stroke } from "ol/style";
 import Graticule from "ol/layer/Graticule.js";
 import "ol/ol.css";
+import "../utilities/functions";
+import "../utilities/constants";
 
 const graticule = new Graticule({
   // the style to use for the lines, optional.
@@ -142,7 +144,7 @@ const MyMap = ({
     mapIsReadyCallback('my map');
   }, [mapIsReadyCallback]);
 
-  return <div className="map-container" ref={mapContainer}></div>;
+  return (<div className="map-container" ref={mapContainer}></div>);
 };
 
 export default MyMap;

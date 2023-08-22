@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+}
+
+.map-wrapper {
+    height: 100vh; /* For 100% screen height */
+    width:  100vw; /* For 100% screen width */
+  }
+  
+  .map-container {
+    height: 100%;
+    width:  100%;
+  }
