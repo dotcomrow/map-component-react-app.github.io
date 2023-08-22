@@ -58,12 +58,12 @@ module.exports = (env) => {
             new HtmlWebpackPlugin({
                 template: path.resolve(__dirname, '../public/index.html'),
                 publicPath: '/',
-                favicon: path.resolve(__dirname, '../public/favicon.ico'),
+                favicon: path.resolve(__dirname, '../assets/favicon.ico'),
             }),
             new CopyWebpackPlugin({
                 patterns: [
                     {
-                        from: path.resolve(__dirname, '../public'),
+                        from: path.resolve(__dirname, '../assets'),
                         to: path.resolve(__dirname, '../build'),
                     }
                 ]
