@@ -1,0 +1,1 @@
+!function(_){_.__env=_.__env||{},_.__env.TEST="test"}(this);
