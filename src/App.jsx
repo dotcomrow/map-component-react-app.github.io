@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "./styles.scss";
 import MyMap from './components/map-component';
 import { useGeographic } from "ol/proj.js";
+import { envConfig } from './config';
 
 useGeographic();
 
@@ -31,8 +32,8 @@ function oauth2SignIn() {
 
     // Parameters to pass to OAuth 2.0 endpoint.
     var params = {
-        'client_id': '<GOOGLE_OAUTH_CLIENT_ID>',
-        'redirect_uri': '<REDIRECT_URL>',
+        'client_id': envConfig.GOOGLE_CLIENT_ID,
+        'redirect_uri': window.location.href,
         'scope': 'email profile openid',
         'state': 'try_sample_request',
         'include_granted_scopes': 'true',
@@ -76,8 +77,8 @@ function trySampleRequest() {
 }
 
 const mapIsReadyCallback = (map) => {
-    console.log(map);
     trySampleRequest();
+
 };
 
 ReactDOM.render(

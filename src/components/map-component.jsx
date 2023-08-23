@@ -12,6 +12,9 @@ import Graticule from "ol/layer/Graticule.js";
 import "ol/ol.css";
 import "../utilities/functions";
 import "../utilities/constants";
+import { envConfig } from '../config';
+
+var params = JSON.parse(localStorage.getItem('oauth2-test-params'));
 
 const graticule = new Graticule({
   // the style to use for the lines, optional.
@@ -36,10 +39,10 @@ const vectorSource = new VectorSource({
   format: new GeoJSON(),
   loader: function (extent, _resolution, _projection, success, failure) {
     vectorSource.removeLoadedExtent(extent);
-    const url =
-      "<OL_LAYER_URL>"
+    const url = envConfig.OL_LAYER_URL;
     const xhr = new XMLHttpRequest();
     xhr.open("GET", url);
+    xhr.setRequestHeader("Authorization", "Bearer " + params['access_token']);
     const onError = function () {
       vectorSource.removeLoadedExtent(extent);
       failure();
@@ -47,11 +50,11 @@ const vectorSource = new VectorSource({
     xhr.onerror = onError;
     xhr.onload = function () {
       if (xhr.status === 200) {
-        const features = vectorSource
-          .getFormat()
-          .readFeatures(xhr.responseText);
-        vectorSource.addFeatures(features);
-        success(features);
+        // const features = vectorSource
+        //   .getFormat()
+        //   .readFeatures(xhr.responseText);
+        // vectorSource.addFeatures(features);
+        // success(features);
       } else {
         onError();
       }
