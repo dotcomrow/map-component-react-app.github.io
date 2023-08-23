@@ -50,11 +50,11 @@ const vectorSource = new VectorSource({
     xhr.onerror = onError;
     xhr.onload = function () {
       if (xhr.status === 200) {
-        // const features = vectorSource
-        //   .getFormat()
-        //   .readFeatures(xhr.responseText);
-        // vectorSource.addFeatures(features);
-        // success(features);
+        const features = vectorSource
+          .getFormat()
+          .readFeatures(xhr.responseText);
+        vectorSource.addFeatures(features);
+        success(features);
       } else {
         onError();
       }
