@@ -9,12 +9,14 @@ import GeoJSON from "ol/format/GeoJSON";
 import { bbox } from "ol/loadingstrategy.js";
 import { Style, Fill, Stroke } from "ol/style";
 import Graticule from "ol/layer/Graticule.js";
+import { useGeographic } from "ol/proj.js";
 import "ol/ol.css";
 import "../utilities/functions";
 import "../utilities/constants";
 import { envConfig } from '../config';
 
 var params = JSON.parse(localStorage.getItem('user-token'));
+useGeographic();
 
 const graticule = new Graticule({
   // the style to use for the lines, optional.
