@@ -14,7 +14,7 @@ import "../utilities/functions";
 import "../utilities/constants";
 import { envConfig } from '../config';
 
-var params = JSON.parse(localStorage.getItem('oauth2-test-params'));
+var params = JSON.parse(localStorage.getItem('user-token'));
 
 const graticule = new Graticule({
   // the style to use for the lines, optional.
