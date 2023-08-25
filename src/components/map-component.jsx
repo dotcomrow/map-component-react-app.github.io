@@ -5,8 +5,8 @@ import TileLayer from "ol/layer/Tile";
 import OSM from "ol/source/OSM";
 import { useGeographic } from "ol/proj.js";
 import "ol/ol.css";
-import "../utilities/functions";
-import "../utilities/constants";
+import { buildVectorLayer } from "../utilities/functions";
+import  "../utilities/constants";
 
 useGeographic();
 
@@ -39,7 +39,7 @@ const MyMap = ({
         new TileLayer({
           source: new OSM(), // tiles are served by OpenStreetMap
         }),
-        vectorLayer
+        buildVectorLayer()
       ],
       // the map view will initially show the whole world
       view: new View({
