@@ -83,6 +83,7 @@ const vectorLayer = new VectorLayer({
 
 const MyMap = ({
   mapIsReadyCallback /* To be triggered when a map object is created */,
+  vars
 }) => {
   const mapContainer = useRef(null);
 

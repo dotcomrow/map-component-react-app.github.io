@@ -3,4 +3,11 @@ import ReactDOM from "react-dom";
 import "./styles.scss";
 import MapContent from './MapContent';
 
-ReactDOM.render(<MapContent />, document.getElementById("root"));
+const mapIsReadyCallback = (map) => {
+    console.log("Map is ready");
+    console.log(map);
+};
+
+ReactDOM.render(<MapContent  
+    mapIsReadyCallback={mapIsReadyCallback}
+    vars={mapIsReadyCallback}/>, document.getElementById("root"));

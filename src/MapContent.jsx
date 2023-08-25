@@ -11,9 +11,7 @@ import ErrorBoundryWrapper from "./components/ErrorBoundry";
 
 function MapContent({ mapIsReadyCallback, vars }) {
     return (
-        <ErrorBoundryWrapper>
-            <MyMap mapIsReadyCallback={mapIsReadyCallback} />
-        </ErrorBoundryWrapper>
+        <MyMap mapIsReadyCallback={mapIsReadyCallback} vars={vars}/>
     );
 }
 
