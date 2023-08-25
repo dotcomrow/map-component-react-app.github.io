@@ -39,8 +39,7 @@ const MyMap = ({
         new TileLayer({
           source: new OSM(), // tiles are served by OpenStreetMap
         }),
-        graticule,
-        vectorLayer,
+        vectorLayer
       ],
       // the map view will initially show the whole world
       view: new View({
