@@ -8,4 +8,4 @@ const mapIsReadyCallback = (map) => {
     console.log(map);
 };
 
-ReactDOM.render(<MyMap mapIsReadyCallback={mapIsReadyCallback}/>, document.getElementById("root"));
+ReactDOM.render(<MyMap mapIsReadyCallback={mapIsReadyCallback}/>, document.getElementById("map-container"));
