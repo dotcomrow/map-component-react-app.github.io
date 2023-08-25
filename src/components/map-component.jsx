@@ -2,87 +2,16 @@ import React, { useEffect, useRef } from 'react';
 import View from "ol/View";
 import Map from "ol/Map";
 import TileLayer from "ol/layer/Tile";
-import VectorLayer from "ol/layer/Vector";
 import OSM from "ol/source/OSM";
-import VectorSource from "ol/source/Vector";
-import GeoJSON from "ol/format/GeoJSON";
-import { bbox } from "ol/loadingstrategy.js";
-import { Style, Fill, Stroke } from "ol/style";
-import Graticule from "ol/layer/Graticule.js";
 import { useGeographic } from "ol/proj.js";
 import "ol/ol.css";
 import "../utilities/functions";
 import "../utilities/constants";
-import { envConfig } from '../config';
 
-var params = JSON.parse(localStorage.getItem('user-token'));
 useGeographic();
 
-const graticule = new Graticule({
-  // the style to use for the lines, optional.
-  strokeStyle: new Stroke({
-    color: "rgba(255,120,0,0.9)",
-    width: 2,
-    lineDash: [0.5, 4],
-  }),
-  showLabels: true,
-  wrapX: true,
-});
-
-const formatLineString = (obj) => {
-  var retArray = [];
-  obj.forEach((lineString) => {
-    retArray.push(lineString.getCoordinates().join(","));
-  });
-  return retArray.join(";");
-};
-
-const vectorSource = new VectorSource({
-  format: new GeoJSON(),
-  loader: function (extent, _resolution, _projection, success, failure) {
-    vectorSource.removeLoadedExtent(extent);
-    const url = envConfig.OL_LAYER_URL + "?bbox=" + extent.join(',');
-    const xhr = new XMLHttpRequest();
-    xhr.open("GET", url);
-    xhr.setRequestHeader("Authorization", "Bearer " + params['access_token']);
-    const onError = function () {
-      vectorSource.removeLoadedExtent(extent);
-      failure();
-    };
-    xhr.onerror = onError;
-    xhr.onload = function () {
-      if (xhr.status === 200) {
-        const features = vectorSource
-          .getFormat()
-          .readFeatures(xhr.responseText);
-        vectorSource.addFeatures(features);
-        success(features);
-      } else {
-        onError();
-      }
-    };
-    xhr.send();
-  },
-  strategy: bbox,
-  overlaps: false,
-});
-
-const vectorLayer = new VectorLayer({
-  source: vectorSource,
-  style: new Style({
-    fill: new Fill({
-      color: "rgba(255,255,255,0.2)",
-    }),
-    stroke: new Stroke({
-      color: "rgba(0,0,255,0.3)",
-    }),
-  }),
-  maxZoom: 14,
-  minZoom: 8,
-});
-
 const MyMap = ({
-  mapIsReadyCallback /* To be triggered when a map object is created */,
+  mapIsReadyCallback,
   vars
 }) => {
   const mapContainer = useRef(null);
