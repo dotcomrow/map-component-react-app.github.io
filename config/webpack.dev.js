@@ -30,7 +30,7 @@ const devConfig = {
             name: 'map_component',
             filename: 'remoteEntry.js',
             exposes: {
-                './Map': './src/App.jsx'
+                './MapContent': './src/App.jsx'
             },
             shared: {
                 ...packageJson.dependencies,
