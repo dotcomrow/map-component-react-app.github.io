@@ -8,12 +8,11 @@ import "ol/ol.css";
 import { buildVectorLayer } from "../utilities/functions";
 import  "../utilities/constants";
 
-useGeographic();
-
 const MyMap = ({
   mapIsReadyCallback,
   vars
 }) => {
+  useGeographic();
   const mapContainer = useRef(null);
 
   const constructMap = (pos) => {
@@ -76,7 +75,7 @@ const MyMap = ({
     );
 
     mapIsReadyCallback('my map');
-  }, [mapIsReadyCallback]);
+  }, []);
 
   return (<div className="map-container" ref={mapContainer}></div>);
 };
