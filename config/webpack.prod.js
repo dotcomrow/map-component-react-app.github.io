@@ -14,11 +14,11 @@ const prodConfig = {
         // port: 8081,
         historyApiFallback: true,
     },
-    // optimization: {
-    //     minimize: false,
-    //     runtimeChunk: false,
-    //     splitChunks: false
-    // },
+    optimization: {
+        minimize: true,
+        runtimeChunk: true,
+        splitChunks: true
+    },
     plugins: [
         { // anonymous plugin
             apply(compiler) {

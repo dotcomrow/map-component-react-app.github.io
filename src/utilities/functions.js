@@ -8,7 +8,7 @@ import VectorLayer from "ol/layer/Vector";
 export const testFunc = () => {
     console.log('testFunc');
 };
-  
+ 
 export const formatLineString = (obj) => {
     var retArray = [];
     obj.forEach((lineString) => {
