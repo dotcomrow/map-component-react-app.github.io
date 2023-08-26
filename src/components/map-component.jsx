@@ -13,7 +13,6 @@ const MyMap = ({
   vars
 }) => {
 
-
   useEffect(() => {
     useGeographic();
     const constructMap = (pos) => {

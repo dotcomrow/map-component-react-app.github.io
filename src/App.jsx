@@ -57,7 +57,6 @@ export const oauth2SignIn = () => {
 
 export const trySampleRequest = () => {
     var params = JSON.parse(localStorage.getItem('user-token'));
-    return;
     if (params && params['access_token']) {
         var xhr = new XMLHttpRequest();
         xhr.open('GET',
