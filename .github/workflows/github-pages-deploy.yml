@@ -25,37 +25,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: get repository name
-        run: echo "REPOSITORY_NAME=${GITHUB_REPOSITORY#*/}" >> $GITHUB_ENV
-
-      - name: Find and Replace
-        uses: jacobtomlinson/gha-find-replace@v3
-        with:
-              find: "<REPOSITORY_NAME>"
-              replace: ${{ env.REPOSITORY_NAME }}
-              regex: false
-
-      - name: Find and Replace
-        uses: jacobtomlinson/gha-find-replace@v3
-        with:
-              find: "<OL_LAYER_URL>"
-              replace: ${{ secrets.OL_LAYER_URL }}
-              regex: false
-
-      - name: Find and Replace
-        uses: jacobtomlinson/gha-find-replace@v3
-        with:
-              find: "<REDIRECT_URL>"
-              replace: ${{ secrets.REDIRECT_URL }}
-              regex: false
-
-      - name: Find and Replace
-        uses: jacobtomlinson/gha-find-replace@v3
-        with:
-              find: "<GOOGLE_OAUTH_CLIENT_ID>"
-              replace: ${{ secrets.GOOGLE_OAUTH_CLIENT_ID }}
-              regex: false
-
       - uses: actions/setup-node@v3
         with:
           node-version: 16
