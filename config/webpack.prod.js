@@ -17,7 +17,7 @@ const prodConfig = {
     optimization: {
         minimize: true,
         runtimeChunk: true,
-        splitChunks: true
+        splitChunks: false
     },
     plugins: [
         { // anonymous plugin
