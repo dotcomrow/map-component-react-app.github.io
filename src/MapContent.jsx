@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./styles.scss";
 import MyMap from './components/map-component';
+import { ErrorBoundary } from "react-error-boundary";
 
 // const mapIsReadyCallback = (map) => {
 //     console.log("Map is ready");
@@ -19,9 +20,11 @@ function ErrorFallback({error}) {
 
 function MapContent({ mapIsReadyCallback, vars }) {
     return (
+        <ErrorBoundary FallbackComponent={ErrorFallback}>
             <div className="map-wrapper">
                 <MyMap mapIsReadyCallback={mapIsReadyCallback} vars={vars}/>
             </div>
+        </ErrorBoundary>
     );
 }
 
