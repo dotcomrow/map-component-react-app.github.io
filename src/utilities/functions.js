@@ -4,7 +4,47 @@ import GeoJSON from "ol/format/GeoJSON";
 import { bbox } from "ol/loadingstrategy.js";
 import { Style, Fill, Stroke } from "ol/style";
 import VectorLayer from "ol/layer/Vector";
-  
+import View from "ol/View";
+import Map from "ol/Map";
+import TileLayer from "ol/layer/Tile";
+import OSM from "ol/source/OSM";
+
+export const constructMap = (pos) => {
+  new Map({
+    // the map will be created using the 'map-root' ref
+    target: document.querySelectorAll([".map-container"])[0],
+    eventListeners: {
+      // this is where we integrate the Vue component to OpenLayers
+      // we forward all (possible) events to the Vue component
+      // using the $emit method
+      moveend: (evt) => {
+        this.$emit("moveend", evt);
+      },
+      click: (evt) => {
+        this.$emit("click", evt);
+      },
+      pointermove: (evt) => {
+        this.$emit("pointermove", evt);
+      },
+    },
+    layers: [
+      // adding a background tiled layer
+      new TileLayer({
+        source: new OSM(), // tiles are served by OpenStreetMap
+      }),
+      buildVectorLayer()
+    ],
+    // the map view will initially show the whole world
+    view: new View({
+      zoom: 10,
+      maxZoom: 14,
+      minZoom: 8,
+      center: [pos.coords.longitude, pos.coords.latitude],
+      constrainResolution: true,
+    }),
+  });
+};
+
 export const buildVectorLayer = () => {
     var params = JSON.parse(localStorage.getItem('user-token'));
     if (params) {
