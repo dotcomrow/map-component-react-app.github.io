@@ -9,18 +9,6 @@ const mapIsReadyCallback = (map) => {
     console.log(map);
 };
 
-var fragmentString = window.location.hash.substring(1);
-var params = {};
-var regex = /([^&=]+)=([^&]*)/g, m;
-while (m = regex.exec(fragmentString)) {
-    params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
-}
-
-if (Object.keys(params).length > 0) {
-    localStorage.setItem('user-token', JSON.stringify(params));
-}
-
-
 export const oauth2SignIn = () => {
     // Google's OAuth 2.0 endpoint for requesting an access token
     var oauth2Endpoint = 'https://accounts.google.com/o/oauth2/v2/auth';
