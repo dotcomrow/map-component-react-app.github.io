@@ -4,11 +4,6 @@ import "./styles.scss";
 import MyMap from './components/map-component';
 import { ErrorBoundary } from "react-error-boundary";
 
-// const mapIsReadyCallback = (map) => {
-//     console.log("Map is ready");
-//     console.log(map);
-// };
-
 function ErrorFallback({error}) {
     return (
         <div role="alert">

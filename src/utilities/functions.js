@@ -4,18 +4,6 @@ import GeoJSON from "ol/format/GeoJSON";
 import { bbox } from "ol/loadingstrategy.js";
 import { Style, Fill, Stroke } from "ol/style";
 import VectorLayer from "ol/layer/Vector";
-
-export const testFunc = () => {
-    console.log('testFunc');
-};
- 
-export const formatLineString = (obj) => {
-    var retArray = [];
-    obj.forEach((lineString) => {
-      retArray.push(lineString.getCoordinates().join(","));
-    });
-    return retArray.join(";");
-};
   
 export const buildVectorLayer = () => {
     var params = JSON.parse(localStorage.getItem('user-token'));

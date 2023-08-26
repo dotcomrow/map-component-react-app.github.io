@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import View from "ol/View";
 import Map from "ol/Map";
 import TileLayer from "ol/layer/Tile";
@@ -6,7 +6,7 @@ import OSM from "ol/source/OSM";
 import { useGeographic } from "ol/proj.js";
 import "ol/ol.css";
 import { buildVectorLayer } from "../utilities/functions";
-import  "../utilities/constants";
+import "../utilities/constants";
 
 const MyMap = ({
   mapIsReadyCallback,
@@ -50,7 +50,7 @@ const MyMap = ({
         }),
       });
     };
-    
+
     const options = {
       enableHighAccuracy: false,
       timeout: 5000,
