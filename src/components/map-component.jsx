@@ -12,11 +12,10 @@ const MyMap = ({
   mapIsReadyCallback,
   vars
 }) => {
-  useGeographic();
-  const mapContainer = useRef(null);
+
 
   useEffect(() => {
-
+    useGeographic();
     const constructMap = (pos) => {
       new Map({
         // the map will be created using the 'map-root' ref
@@ -78,7 +77,7 @@ const MyMap = ({
     mapIsReadyCallback('my map');
   }, []);
 
-  return (<div className="map-container" ref={mapContainer}></div>);
+  return (<div className="map-container"></div>);
 };
 
 export default MyMap;
