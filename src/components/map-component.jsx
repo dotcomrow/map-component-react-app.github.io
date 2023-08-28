@@ -32,7 +32,7 @@ const MyMap = ({
       }
     );
 
-    mapIsReadyCallback('my map');
+    mapIsReadyCallback();
   }, []);
 
   return (<div className="map-container"></div>);

@@ -46,9 +46,9 @@ export const constructMap = (pos) => {
 };
 
 export const buildVectorLayer = () => {
-    var params = JSON.parse(localStorage.getItem('user-token'));
-    if (params) {
-      const vectorSource = new VectorSource({
+  var params = JSON.parse(localStorage.getItem('user-token'));
+  if (params) {
+    const vectorSource = new VectorSource({
       format: new GeoJSON(),
       loader: function (extent, _resolution, _projection, success, failure) {
         vectorSource.removeLoadedExtent(extent);
@@ -77,7 +77,7 @@ export const buildVectorLayer = () => {
       strategy: bbox,
       overlaps: false,
     });
-    
+
     return new VectorLayer({
       source: vectorSource,
       style: new Style({
@@ -93,7 +93,7 @@ export const buildVectorLayer = () => {
     });
   } else {
     return new VectorLayer({
-      source:new VectorSource()
-  });
+      source: new VectorSource()
+    });
   }
 };
