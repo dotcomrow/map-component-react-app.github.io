@@ -52,7 +52,7 @@ export const buildVectorLayer = () => {
       format: new GeoJSON(),
       loader: function (extent, _resolution, _projection, success, failure) {
         vectorSource.removeLoadedExtent(extent);
-        const url = envConfig.OL_LAYER_URL + "?bbox=" + extent.join(',');
+        const url = "https://api.suncoast.systems/features?bbox=" + extent.join(',');
         const xhr = new XMLHttpRequest();
         xhr.open("GET", url);
         xhr.setRequestHeader("Authorization", "Bearer " + params['access_token']);
