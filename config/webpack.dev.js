@@ -32,6 +32,9 @@ const devConfig = {
             exposes: {
                 './MapContent': './src/MapContent.jsx'
             },
+            remotes: {
+                dtk: 'storybook@https://dtk.suncoast.systems/dtk/remoteEntry.js',
+            },
             shared: {
                 ...packageJson.dependencies,
                 react: {
