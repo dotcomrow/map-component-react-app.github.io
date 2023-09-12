@@ -4,13 +4,14 @@ import "./styles.scss";
 import MyMap from './components/map-component';
 import { ErrorBoundary } from "react-error-boundary";
 import { importRemote } from "module-federation-import-remote";
-import Button from 'dtk/Button';
+import { Button } from 'dtk/Button';
+import Select from 'dtk/Select';
 
-function ErrorFallback({error}) {
+function ErrorFallback({ error }) {
     return (
         <div role="alert">
             <p>Something went wrong:</p>
-            <pre style={{color: 'red'}}>{error.message}</pre>
+            <pre style={{ color: 'red' }}>{error.message}</pre>
         </div>
     )
 }
@@ -20,8 +21,8 @@ function MapContent({ mapIsReadyCallback, vars }) {
     return (
         <ErrorBoundary FallbackComponent={ErrorFallback}>
             <div className="map-wrapper">
-                <Button>Button from DTK</Button>
-                <MyMap mapIsReadyCallback={mapIsReadyCallback} vars={vars}/>
+                <Select>Select from DTK</Select>
+                <MyMap mapIsReadyCallback={mapIsReadyCallback} vars={vars} />
             </div>
         </ErrorBoundary>
     );

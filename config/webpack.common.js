@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ProvidePlugin = require('webpack').ProvidePlugin;
 const fs = require('fs');
 const dotenv = require('dotenv');
 const webpack = require('webpack');
@@ -12,6 +13,13 @@ module.exports = (env) => {
         },
         resolve: {
             extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
+            fallback: {
+                "stream": require.resolve("stream-browserify"),
+                "buffer": require.resolve('buffer'),
+                constants: false,
+                fs: false,
+                path: require.resolve('path-browserify'),
+            }
         },
         module: {
             rules: [
@@ -67,6 +75,10 @@ module.exports = (env) => {
                         to: path.resolve(__dirname, '../build'),
                     }
                 ]
+            }),
+            new ProvidePlugin({
+                process: 'process/browser',
+                Buffer: ['buffer', 'Buffer'],
             }),
         ]
     };
