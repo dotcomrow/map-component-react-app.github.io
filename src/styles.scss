@@ -15,8 +15,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* For 100% screen height */
-    width:  100vw; /* For 100% screen width */
+    height: 100%; /* For 100% screen height */
+    width:  100%; /* For 100% screen width */
 }
 
 .map-wrapper {
