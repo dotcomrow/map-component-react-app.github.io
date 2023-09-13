@@ -9,8 +9,16 @@ import Map from "ol/Map";
 import TileLayer from "ol/layer/Tile";
 import OSM from "ol/source/OSM";
 
+const buildPopup = (feature) => {
+  return `<div class="popup">
+    <h3>${feature.get("name")}</h3>
+    <p>${feature.get("description")}</p>
+    <p><a href="${feature.get("url")}">More info</a></p>
+  </div>`;
+};
+
 export const constructMap = (pos) => {
-  new Map({
+  return new Map({
     // the map will be created using the 'map-root' ref
     target: document.querySelectorAll([".map-container"])[0],
     eventListeners: {
@@ -42,6 +50,15 @@ export const constructMap = (pos) => {
       center: [pos.coords.longitude, pos.coords.latitude],
       constrainResolution: true,
     }),
+    overlays: [
+      new Overlay({
+        element: buildPopup(feature),
+        autoPan: true,
+        autoPanAnimation: {
+          duration: 250,
+        },
+      }),
+    ],
   });
 };
 
