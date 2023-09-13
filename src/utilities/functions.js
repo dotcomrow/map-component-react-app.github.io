@@ -9,13 +9,15 @@ import View from "ol/View";
 import Map from "ol/Map";
 import TileLayer from "ol/layer/Tile";
 import OSM from "ol/source/OSM";
+import ReactDOM from "react-dom";
 
-const buildPopup = (feature) => {
-  return `<div class="popup">
-    <h3>${feature.get("name")}</h3>
-    <p>${feature.get("description")}</p>
-    <p><a href="${feature.get("url")}">More info</a></p>
-  </div>`;
+const buildPopup = () => {
+  return ReactDOM.render(`<div class="popup">
+    <h3 className="header"></h3>
+    <p className="description"></p>
+    <p><a href="#" className="moreInfo">More info</a></p>
+  </div>`
+  , document.getElementsByClassName('popup-container')[0]);
 };
 
 export const constructMap = (pos) => {
@@ -51,15 +53,15 @@ export const constructMap = (pos) => {
       center: [pos.coords.longitude, pos.coords.latitude],
       constrainResolution: true,
     }),
-    // overlays: [
-    //   new Overlay({
-    //     element: buildPopup(feature),
-    //     autoPan: true,
-    //     autoPanAnimation: {
-    //       duration: 250,
-    //     },
-    //   }),
-    // ],
+    overlays: [
+      new Overlay({
+        element: buildPopup(),
+        autoPan: true,
+        autoPanAnimation: {
+          duration: 250,
+        },
+      }),
+    ],
   });
 };
 

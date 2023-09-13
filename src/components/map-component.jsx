@@ -14,11 +14,11 @@ const MyMap = ({
 
     navigator.geolocation.getCurrentPosition(
       (pos) => {
-        map = constructMap(pos);
+        var map = constructMap(pos);
       },
       (err) => {
         console.warn(`ERROR(${err.code}): ${err.message}`);
-        map = constructMap({
+        var map = constructMap({
           coords: {
             latitude: 51.505,
             longitude: -0.09,
@@ -38,6 +38,7 @@ const MyMap = ({
   return (
     <div>
       <div className="map-container"></div>
+      <div className="popup-container"></div>
     </div>
   );
 };
