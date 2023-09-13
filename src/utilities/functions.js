@@ -51,15 +51,15 @@ export const constructMap = (pos) => {
       center: [pos.coords.longitude, pos.coords.latitude],
       constrainResolution: true,
     }),
-    overlays: [
-      new Overlay({
-        element: buildPopup(feature),
-        autoPan: true,
-        autoPanAnimation: {
-          duration: 250,
-        },
-      }),
-    ],
+    // overlays: [
+    //   new Overlay({
+    //     element: buildPopup(feature),
+    //     autoPan: true,
+    //     autoPanAnimation: {
+    //       duration: 250,
+    //     },
+    //   }),
+    // ],
   });
 };
 
