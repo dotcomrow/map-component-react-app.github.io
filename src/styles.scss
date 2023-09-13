@@ -10,6 +10,15 @@ body {
     background-color: #f5f5f5;
 }
 
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* For 100% screen height */
+    width:  100vw; /* For 100% screen width */
+}
+
 .map-wrapper {
     height: 100vh; /* For 100% screen height */
     width:  100vw; /* For 100% screen width */
