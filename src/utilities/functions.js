@@ -4,6 +4,7 @@ import GeoJSON from "ol/format/GeoJSON";
 import { bbox } from "ol/loadingstrategy.js";
 import { Style, Fill, Stroke } from "ol/style";
 import VectorLayer from "ol/layer/Vector";
+import Overlay from "ol/Overlay";
 import View from "ol/View";
 import Map from "ol/Map";
 import TileLayer from "ol/layer/Tile";
