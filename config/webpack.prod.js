@@ -43,21 +43,17 @@ const prodConfig = {
                 react: {
                     singleton: true,
                     requiredVersion: packageJson.dependencies.react,
-                    eager: true
                 },
                 'react-dom': {
                     singleton: true,
-                    eager: true,
                     requiredVersion: packageJson.dependencies['react-dom'],
                 },
                 'react-router-dom': {
                     singleton: true,
-                    eager: true,
                     requiredVersion: packageJson.dependencies['react-router-dom'],
                 },
                 bootstrap: {
                     singleton: true,
-                    eager: true,
                     requiredVersion: packageJson.dependencies.bootstrap,
                 },
             }
