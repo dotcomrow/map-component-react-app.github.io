@@ -36,7 +36,7 @@ const MyMap = ({
   }, []);
 
   return (
-    <div className="container-fluid bg-white p-dynamic row h-100">
+    <div className="bg-white p-dynamic h-100">
       <div className="map-container h-100"></div>
       <div className="popup-container"></div>
     </div>
