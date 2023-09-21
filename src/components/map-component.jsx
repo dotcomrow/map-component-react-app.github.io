@@ -36,8 +36,8 @@ const MyMap = ({
   }, []);
 
   return (
-    <div className="wrapper">
-      <div className="map-container"></div>
+    <div className="container-fluid bg-white p-dynamic row h-100">
+      <div className="map-container h-100"></div>
       <div className="popup-container"></div>
     </div>
   );

@@ -2,7 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./styles.scss";
 import MapContent from './MapContent';
-import {envConfig} from './config';
+import { envConfig } from './config';
+import BaseStyles from 'dtk/BaseStyles';
 
 const mapIsReadyCallback = (map) => {
     console.log("Map is ready");
@@ -65,7 +66,9 @@ export const trySampleRequest = () => {
 }
 
 ReactDOM.render(
-    <MapContent
-        mapIsReadyCallback={trySampleRequest}
-        vars={mapIsReadyCallback} />
-, document.getElementById("root"));
+    <div className="h-100">
+        <MapContent
+            mapIsReadyCallback={trySampleRequest}
+            vars={mapIsReadyCallback} />
+    </div>
+    , document.getElementById("root"));
