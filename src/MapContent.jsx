@@ -20,7 +20,7 @@ function MapContent({ mapIsReadyCallback, vars }) {
 
     return (
         <ErrorBoundary FallbackComponent={ErrorFallback}>
-            <div className="container-fluid bg-white p-0 tile h-100">
+            <div className="container-fluid bg-white p-0 h-100">
                 <Select>Select from DTK</Select>
                 <MyMap mapIsReadyCallback={mapIsReadyCallback} vars={vars} />
             </div>
