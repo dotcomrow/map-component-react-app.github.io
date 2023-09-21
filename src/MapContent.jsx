@@ -21,7 +21,9 @@ function MapContent({ mapIsReadyCallback, vars }) {
     return (
         <ErrorBoundary FallbackComponent={ErrorFallback}>
             <div className="container-fluid bg-white p-2 h-100 d-flex flex-column">
-                <Select>Select from DTK</Select>
+                <div className="pb-2 ps-2 ps-2">
+                    <Select>Select from DTK</Select>
+                </div>
                 <MyMap mapIsReadyCallback={mapIsReadyCallback} vars={vars} />
             </div>
         </ErrorBoundary>
