@@ -122,7 +122,7 @@ export const getLookupCode = (code, def) => {
   try {
       const xhr = new XMLHttpRequest();
       xhr.open('GET', 
-      'https://api.suncoast.systems/lookup_codes/global-configuration-396913/' + code, false);
+      '<LOOKUP_CODE_URL>' + code, false);
       xhr.send(null);
       if (xhr.status === 200) {
         console.log(xhr.responseText);
