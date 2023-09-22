@@ -9,6 +9,7 @@ import Map from "ol/Map";
 import TileLayer from "ol/layer/Tile";
 import OSM from "ol/source/OSM";
 import ReactDOM from "react-dom";
+import axios from "axios";
 
 const buildPopup = () => {
   return ReactDOM.render(`<div class="popup">
