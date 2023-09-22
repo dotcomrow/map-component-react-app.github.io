@@ -120,9 +120,14 @@ export const buildVectorLayer = () => {
 
 export const getLookupCode = async (code, def) => {
   try {
-      return await axios.get('<LOOKUP_CODE_URL>' + code).then((res) => {
-          return res.data.value;
-      });
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', '<LOOKUP_CODE_URL>', false);
+      xhr.send(null);
+      if (xhr.status === 200) {
+          return JSON.parse(xhr.responseText).value;
+      } else {
+          throw new Error('Request failed: ' + xhr.statusText);
+      }
   } catch (err) {
       return def;
   }
