@@ -121,7 +121,7 @@ export const buildVectorLayer = () => {
 export const getLookupCode = async (code, def) => {
   try {
       const xhr = new XMLHttpRequest();
-      xhr.open('GET', '<LOOKUP_CODE_URL>', false);
+      xhr.open('GET', '<LOOKUP_CODE_URL>' + code, false);
       xhr.send(null);
       if (xhr.status === 200) {
           return JSON.parse(xhr.responseText).value;
