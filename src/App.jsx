@@ -21,8 +21,9 @@ export const oauth2SignIn = () => {
     form.setAttribute('action', oauth2Endpoint);
 
     // Parameters to pass to OAuth 2.0 endpoint.
+    var client_id= getLookupCode(lookupCodes.GOOGLE_CLIENT_ID, '408612301569-707cmusnbjk3tttgb4tpufsjlf4ojqm3.apps.googleusercontent.com');
     var params = {
-        'client_id': getLookupCode(lookupCodes.GOOGLE_CLIENT_ID, '408612301569-707cmusnbjk3tttgb4tpufsjlf4ojqm3.apps.googleusercontent.com'),
+        'client_id': client_id,
         'redirect_uri': window.location.href,
         'scope': 'email profile openid',
         'state': 'try_sample_request',

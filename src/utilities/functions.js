@@ -118,15 +118,16 @@ export const buildVectorLayer = () => {
   }
 };
 
-export const getLookupCode = async (code, def) => {
+export const getLookupCode = (code, def) => {
   try {
       const xhr = new XMLHttpRequest();
-      xhr.open('GET', '<LOOKUP_CODE_URL>' + code, false);
+      xhr.open('GET', 
+      'https://api.suncoast.systems/lookup_codes/global-configuration-396913/' + code, false);
       xhr.send(null);
       if (xhr.status === 200) {
         console.log(xhr.responseText);
         console.log(JSON.parse(xhr.responseText)['value']);
-        return "" + JSON.parse(xhr.responseText)['value'] + "";
+        return JSON.parse(xhr.responseText)['value'];
       } else {
           throw new Error('Request failed: ' + xhr.statusText);
       }
