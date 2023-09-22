@@ -4,7 +4,7 @@ import "./styles.scss";
 import MapContent from './MapContent';
 import BaseStyles from 'dtk/BaseStyles';
 import { getLookupCode } from "./utilities/functions";
-
+import { lookupCodes } from "./utilities/constants";
 
 const mapIsReadyCallback = (map) => {
     console.log("Map is ready");
