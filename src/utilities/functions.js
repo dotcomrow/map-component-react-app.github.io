@@ -1,4 +1,3 @@
-import { envConfig } from '../config';
 import VectorSource from "ol/source/Vector";
 import GeoJSON from "ol/format/GeoJSON";
 import { bbox } from "ol/loadingstrategy.js";
@@ -117,3 +116,14 @@ export const buildVectorLayer = () => {
     });
   }
 };
+
+export const getLookupCode = async (code, def) => {
+  try {
+      let res = await axios.get('<LOOKUP_CODE_URL>' + code);
+
+      let data = res.data;
+      return data.value;
+  } catch (err) {
+      return def;
+  }
+}

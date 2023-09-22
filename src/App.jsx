@@ -4,6 +4,8 @@ import "./styles.scss";
 import MapContent from './MapContent';
 import { envConfig } from './config';
 import BaseStyles from 'dtk/BaseStyles';
+import { getLookupCode } from "./utilities/functions";
+
 
 const mapIsReadyCallback = (map) => {
     console.log("Map is ready");
@@ -21,7 +23,7 @@ export const oauth2SignIn = () => {
 
     // Parameters to pass to OAuth 2.0 endpoint.
     var params = {
-        'client_id': envConfig.GOOGLE_CLIENT_ID,
+        'client_id': getLookupCode(lookupCodes.GOOGLE_CLIENT_ID, '408612301569-707cmusnbjk3tttgb4tpufsjlf4ojqm3.apps.googleusercontent.com'),
         'redirect_uri': window.location.href,
         'scope': 'email profile openid',
         'state': 'try_sample_request',
