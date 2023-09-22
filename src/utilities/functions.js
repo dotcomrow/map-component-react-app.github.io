@@ -124,7 +124,9 @@ export const getLookupCode = async (code, def) => {
       xhr.open('GET', '<LOOKUP_CODE_URL>' + code, false);
       xhr.send(null);
       if (xhr.status === 200) {
-          return JSON.parse(xhr.responseText).value;
+        console.log(xhr.responseText);
+        console.log(JSON.parse(xhr.responseText)['value']);
+        return JSON.parse(xhr.responseText)['value'];
       } else {
           throw new Error('Request failed: ' + xhr.statusText);
       }
