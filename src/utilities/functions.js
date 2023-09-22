@@ -120,10 +120,9 @@ export const buildVectorLayer = () => {
 
 export const getLookupCode = async (code, def) => {
   try {
-      let res = await axios.get('<LOOKUP_CODE_URL>' + code);
-
-      let data = await res.data;
-      return data.value;
+      return await axios.get('<LOOKUP_CODE_URL>' + code).then((res) => {
+          return res.data.value;
+      });
   } catch (err) {
       return def;
   }
