@@ -126,7 +126,7 @@ export const getLookupCode = async (code, def) => {
       if (xhr.status === 200) {
         console.log(xhr.responseText);
         console.log(JSON.parse(xhr.responseText)['value']);
-        return JSON.parse(xhr.responseText)['value'];
+        return "" + JSON.parse(xhr.responseText)['value'] + "";
       } else {
           throw new Error('Request failed: ' + xhr.statusText);
       }
