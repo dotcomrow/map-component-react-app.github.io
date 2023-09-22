@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./styles.scss";
 import MapContent from './MapContent';
-import { envConfig } from './config';
 import BaseStyles from 'dtk/BaseStyles';
 import { getLookupCode } from "./utilities/functions";
 
