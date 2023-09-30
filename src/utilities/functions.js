@@ -75,7 +75,7 @@ export const buildVectorLayer = () => {
         const url = "https://api.suncoast.systems/features?bbox=" + extent.join(',');
         const xhr = new XMLHttpRequest();
         xhr.open("GET", url);
-        xhr.setRequestHeader("Authorization", "Bearer " + params['access_token']);
+        xhr.setRequestHeader("Authorization", "Bearer " + params['id_token']);
         const onError = function () {
           vectorSource.removeLoadedExtent(extent);
           failure();
